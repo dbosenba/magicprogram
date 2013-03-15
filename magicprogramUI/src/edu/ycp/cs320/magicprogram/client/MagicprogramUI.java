@@ -25,10 +25,26 @@ public class MagicprogramUI implements EntryPoint {
 		RootLayoutPanel.get().setWidgetLeftRight(panel, 10.0, Unit.PX, 10.0, Unit.PX);
 		RootLayoutPanel.get().setWidgetTopBottom(panel, 10.0, Unit.PX, 10.0, Unit.PX);
 		
+		//Canvas gameBoard = new Canvas("Game Board");
+		
+		
 		Button btnNewButton = new Button("New button");
 		btnNewButton.setText("add creep");
 		panel.add(btnNewButton);
-		panel.setWidgetLeftWidth(btnNewButton, 325.0, Unit.PX, 81.0, Unit.PX);
+
+		panel.setWidgetLeftWidth(btnNewButton, 425.0, Unit.PX, 81.0, Unit.PX);
 		panel.setWidgetTopHeight(btnNewButton, 52.0, Unit.PX, 30.0, Unit.PX);
+		
+		Button btnNewButtonb = new Button("New button");
+		btnNewButtonb.setText("add tower");
+		panel.add(btnNewButtonb);
+		
+		panel.setWidgetLeftWidth(btnNewButtonb, 425.0, Unit.PX, 81.0, Unit.PX);
+		panel.setWidgetTopHeight(btnNewButtonb, 100.0, Unit.PX, 30.0, Unit.PX);
+		
+
+		
+		
+		
 	}
 }
