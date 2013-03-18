@@ -1,11 +1,14 @@
 package edu.ycp.cs320.magicprogram.client;
 
+import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Button;
+import edu.ycp.cs320.magicprogram.shared.*;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -14,18 +17,34 @@ public class MagicprogramUI implements EntryPoint {
 	/**
 	 * This is the entry point method.
 	 */
+
 	public void onModuleLoad() {
 		// create a panel
+
 		LayoutPanel panel = new LayoutPanel();
+
+		FlowPanel fpanel = new FlowPanel();
+		
+		
+		Game game = new Game();
+		
+		GameView view = new GameView(fpanel);
+		view.setModel(game);
+
 		
 		// add your view(s) to the panel
 		//panel.add(yourView);
-		
+
 		RootLayoutPanel.get().add(panel);
 		RootLayoutPanel.get().setWidgetLeftRight(panel, 10.0, Unit.PX, 10.0, Unit.PX);
 		RootLayoutPanel.get().setWidgetTopBottom(panel, 10.0, Unit.PX, 10.0, Unit.PX);
+
 		
-		//Canvas gameBoard = new Canvas("Game Board");
+		RootLayoutPanel rootLayoutPanel = RootLayoutPanel.get();
+		rootLayoutPanel.add(fpanel);
+		RootLayoutPanel.get().setWidgetLeftRight(fpanel, 500.0, Unit.PX, 500.0, Unit.PX);
+		RootLayoutPanel.get().setWidgetTopBottom(fpanel, 500.0, Unit.PX, 500.0, Unit.PX);
+
 		
 		
 		Button btnNewButton = new Button("New button");
@@ -47,4 +66,10 @@ public class MagicprogramUI implements EntryPoint {
 		
 		
 	}
-}
+
+		//view.start();
+		
+	}
+
+
+
