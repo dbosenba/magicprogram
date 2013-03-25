@@ -11,6 +11,7 @@ public class Game {
 	private Rectangle goal;
 	private Board board;
 	private int life;
+	private Creep creep;
 
 	private ArrayList<Creep> creeps;
 	private ArrayList<Tower> towers;
@@ -29,11 +30,11 @@ public class Game {
 		waypoints.add(new Point(50.0,0.0));
 		waypoints.add(new Point(50.0,50.0));
 		
-		setCreeps(new ArrayList<Creep>());
+		//setCreeps(new ArrayList<Creep>());
 		
-		setTowers(new ArrayList<Tower>());
+		//setTowers(new ArrayList<Tower>());
 		
-		setPath(new ArrayList<Point>());
+		//setPath(new ArrayList<Point>());
 		
 		life = 20;
 		
@@ -51,8 +52,8 @@ public class Game {
 
 	}
 	
-	public void getCreep(){
-		
+	public Creep getCreeps(){
+		return creep;
 	}
 	
 	public void update() {
@@ -60,14 +61,14 @@ public class Game {
 
 			for (Creep creep : board.getCreeps()){
 				
-				creep.move(board.getGoal().getCenter());
+				//creep.move(board.getGoal().getCenter());
 				
 				if(creep.getBody().overlaps(goal)){
 					board.getCreeps().remove(creep);
 					life=life-1;
 				}
 
-			for (Creep creep : creeps){
+			for (Creep creepb : creeps){
 				System.out.println("moving creep");
 				creep.move();
 

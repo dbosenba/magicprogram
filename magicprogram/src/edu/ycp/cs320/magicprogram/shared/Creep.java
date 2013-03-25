@@ -155,6 +155,9 @@ public class Creep {
 	public void setSize(int size) {
 		this.size = size;
 	}
+	public void add(Creep creep){
+		this.creep = creep;
+	}
 
 	//Methods
 	/**
@@ -198,5 +201,7 @@ public class Creep {
 	public void kill() {
 		this.hp = 0;
 	}
+
+	
 }
 

@@ -50,7 +50,7 @@ public class MagicprogramUI implements EntryPoint {
 		FlowPanel fpanel = new FlowPanel();
 
 		game = new Game();
-		gameView = new GameView();
+		gameView = new GameView(fpanel);
 		gameView.setModel(game);
 	    rootPanel = RootPanel.get();
 	    rootPanel.setSize("700px", "500px");
@@ -85,9 +85,9 @@ public class MagicprogramUI implements EntryPoint {
 	    	  context.setFillStyle(CssColor.make("white"));
 	    	  context.fillRect(0, 0, 400, 400);
 	    	  context.setFillStyle(CssColor.make("red"));
-	    	  for (Creep creep : game.getCreeps()) {
-	    		  context.fillRect(creep.getPos().getX(), creep.getPos().getY(), creep.getSize(), creep.getSize());
-	    	  }
+//	    	  for (Creep creep : game.getCreeps()) {
+	 //   		  context.fillRect(creep.getPos().getX(), creep.getPos().getY(), creep.getSize(), creep.getSize());
+	    	//  }
 	    	  context.closePath();
 	      }
 	    };
