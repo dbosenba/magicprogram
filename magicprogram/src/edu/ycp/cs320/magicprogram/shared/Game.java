@@ -1,44 +1,32 @@
 package edu.ycp.cs320.magicprogram.shared;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class Game {
-	public static final double WIDTH = 900;
-	//default: 640 x 480 (w x h)
-	public static final double HEIGHT = 660;
+	
+	public enum Events {
+		
+	}
 	
 	//fields
 	private Rectangle goal;
-	private Board board;
 	private int life;
-	private Creep creep;
-
 	private ArrayList<Creep> creeps;
-	private ArrayList<Tower> towers;
-	private String[][] grid = new String[10][10];
+	private Tower[][] towers = new Tower[32][32];
 	private ArrayList<Point> waypoints;
 	
 	
-
 	public Game() {
-
-		goal = new Rectangle(new Point(430, 300), 50, 50);
-		board = new Board();
-		life = 20;
-
 		waypoints = new ArrayList<Point>();
 		waypoints.add(new Point(50.0,0.0));
 		waypoints.add(new Point(50.0,50.0));
 		
-		//setCreeps(new ArrayList<Creep>());
+		setCreeps(new ArrayList<Creep>());
 		
-		//setTowers(new ArrayList<Tower>());
-		
-		//setPath(new ArrayList<Point>());
+		setPath(new ArrayList<Point>());
 		
 		life = 20;
-		
-		
 	}
 	
 	
@@ -49,42 +37,45 @@ public class Game {
 	 */
 	public void addCreep() {
 		creeps.add(new Creep(new Point(0.0, 0.0), waypoints));
-
-	}
-	
-	public Creep getCreeps(){
-		return creep;
 	}
 	
 	public void update() {
 		if (life > 0) {
-
-			for (Creep creep : board.getCreeps()){
-				
-				//creep.move(board.getGoal().getCenter());
-				
-				if(creep.getBody().overlaps(goal)){
-					board.getCreeps().remove(creep);
-					life=life-1;
-				}
-
-			for (Creep creepb : creeps){
+			for (Creep creep : creeps){
 				System.out.println("moving creep");
 				creep.move();
-
 			}
 		}
 	}
-	}
 	
-	public Board getBoard(){
-		return board;
+	
+	
+	// Getters/Setters
+	public ArrayList<Creep> getCreeps() {
+		return creeps;
 	}
-
-
-
+	public void setCreeps(ArrayList<Creep> creeps) {
+		this.creeps = creeps;
+	}
+	public Tower[][] getTowers() {
+		return towers;
+	}
+	public void setTowers(Tower[][] towers) {
+		this.towers = towers;
+	}
+	public ArrayList<Point> getPath() {
+		return waypoints;
+	}
+	public void setPath(ArrayList<Point> waypoints) {
+		this.waypoints = waypoints;
+	}
+	public Rectangle getGoal() {
+		return goal;
+	}
+	public void setGoal(Rectangle goal) {
+		this.goal = goal;
+	}
 	public ArrayList<Point> getWaypoints() {
-		// TODO Auto-generated method stub
 		return waypoints;
 	}
 }
