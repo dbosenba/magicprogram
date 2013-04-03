@@ -1,5 +1,7 @@
 package edu.ycp.cs320.magicprogram.shared;
 
+import java.util.ArrayList;
+
 public class Tower {
 	// Physical attributes
 	private double range;
@@ -7,7 +9,7 @@ public class Tower {
 	private int attackSpeed;
 	// 
 	
-	public Tower() {
+	public void getTowerLocation(ArrayList<Tower> towers) {
 		
 	}
 	

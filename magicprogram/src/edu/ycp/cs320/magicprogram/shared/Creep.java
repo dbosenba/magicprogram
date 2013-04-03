@@ -16,16 +16,18 @@ public class Creep {
 	// Constructors
 	public Creep(Point position, ArrayList<Point> waypoints) {
 		System.out.println("making new creep");
-		speed = 5;
+		speed = 1;
 		
 		this.position = position;
 		
 		size = 50;
 		
 		path = new Stack<Point>();
+		
 		for (int i = waypoints.size() - 1; i >= 0; i--) {
 			System.out.println("Added waypoint");
 			path.push(waypoints.get(i));
+		
 		}
 	}
 	
@@ -89,6 +91,8 @@ public class Creep {
 		}
 		else {
 			System.out.println("Path is empty");
+			position.addY(speed);
+			
 			
 		}
 	}

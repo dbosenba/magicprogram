@@ -21,6 +21,7 @@ public class Game {
 		waypoints = new ArrayList<Point>();
 		waypoints.add(new Point(50.0,0.0));
 		waypoints.add(new Point(50.0,50.0));
+		waypoints.add(new Point(10.0,10.0));
 		
 		setCreeps(new ArrayList<Creep>());
 		

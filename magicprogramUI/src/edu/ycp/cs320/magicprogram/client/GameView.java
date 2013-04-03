@@ -111,7 +111,7 @@ public class GameView extends Composite{
 		
 		
 		// DRAW CREEPS
-		context.setFillStyle("#FF0000");
+		context.setFillStyle("#FFE303");
 		for (Creep curr : model.getCreeps()) {
 			context.fillRect(curr.getPos().getX(), curr.getPos().getY(), curr.getSize(), curr.getSize());
 		}
