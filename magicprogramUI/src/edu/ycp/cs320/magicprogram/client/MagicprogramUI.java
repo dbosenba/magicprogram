@@ -32,9 +32,13 @@ public class MagicprogramUI implements EntryPoint {
 	private GameView gameView;
 	private RootPanel rootPanel;
 	private FlowPanel flowPanel;
+
 	private Canvas canvas;
 	private Context2d context;
 	private Button btnAddCreepTo;
+
+//	private Button btnAddCreepTo;
+
 	/**
 	 * @wbp.nonvisual location=118,99
 	 */
@@ -45,6 +49,12 @@ public class MagicprogramUI implements EntryPoint {
 	
 	public void onModuleLoad() {
 		game = new Game();
+
+		game.addWaypoints();
+		
+		FlowPanel fpanel = new FlowPanel();
+
+
 		gameView = new GameView(game);
 		gameView.setModel(game);
 	    rootPanel = RootPanel.get();
@@ -53,6 +63,7 @@ public class MagicprogramUI implements EntryPoint {
 	    rootPanel.add(flowPanel, 0, 0);
 	    
 	    flowPanel.add(gameView);
+
 	    
 	    btnAddCreepTo = new Button("Send Creep");
 	    btnAddCreepTo.addClickHandler(new ClickHandler() {
@@ -105,5 +116,10 @@ public class MagicprogramUI implements EntryPoint {
 //		panel.add(creepButton);
 //		panel.setWidgetLeftWidth(creepButton, 325.0, Unit.PX, 81.0, Unit.PX);
 //		panel.setWidgetTopHeight(creepButton, 52.0, Unit.PX, 30.0, Unit.PX);
+
+
+	    gameView.start();
+
+
 	}
 }

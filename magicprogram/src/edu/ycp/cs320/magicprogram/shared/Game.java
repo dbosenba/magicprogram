@@ -5,29 +5,51 @@ import java.util.Stack;
 
 public class Game {
 	
+
 	public enum Events {
 		
 	}
+
+
+	public static final double WIDTH = 900;
+	//default: 640 x 480 (w x h)
+	public static final double HEIGHT = 660;
+	
+	public static final double CSIZE = 10;
+
 	
 	//fields
 	private Rectangle goal;
 	private int life;
 	private ArrayList<Creep> creeps;
+
+
+
+	private Terrain [][] grid = new Terrain[32][32];
+
+
 	private Tower[][] towers = new Tower[32][32];
 	private ArrayList<Point> waypoints;
+	private ArrayList<Point> towpoints;
 	
 	
 	public Game() {
 		waypoints = new ArrayList<Point>();
+		towpoints = new ArrayList<Point>();
+		
 		waypoints.add(new Point(50.0,0.0));
 		waypoints.add(new Point(50.0,50.0));
 		waypoints.add(new Point(10.0,10.0));
 		
+
 		setCreeps(new ArrayList<Creep>());
 		
 		setPath(new ArrayList<Point>());
 		
 		life = 20;
+		
+		goal = new Rectangle();
+		this.goal.setTopLeft(new Point(250.0, 250.0));
 	}
 	
 	
@@ -40,15 +62,48 @@ public class Game {
 		creeps.add(new Creep(new Point(0.0, 0.0), waypoints));
 	}
 	
+	
+
+	public void addWaypoints() {
+		waypoints.add(new Point(50.0,0.0));
+		waypoints.add(new Point(50.0,50.0));
+		waypoints.add(new Point(100.0, 0));
+		waypoints.add(new Point(100.0, 100.0));
+		waypoints.add(goal.getCenter());
+	}
+	
+	public void addCreepAt(Point pos) {
+		creeps.add(new Creep(new Point(pos.getX(), pos.getY()), waypoints));
+	}
+	
+
 	public void update() {
 		if (life > 0) {
 			for (Creep creep : creeps){
 				System.out.println("moving creep");
 				creep.move();
+
+				creep.setPos(new Point(creep.getPos().getX() + 1, creep.getPos().getY() + 1));
+				if(creep.getPos().getX() < goal.getCenter().getX()) {
+					creep.getPos().addX(creep.getSpeed());
+				}
+				if(creep.getPos().getY() < goal.getCenter().getY()) {
+					creep.getPos().addY(creep.getSpeed());
+				}
+				if(creep.getPos().distanceTo(goal.getCenter()) == 0) {
+					creeps.remove(creep);
+				}
+				
+					
+				}
+
 			}
 		}
-	}
+		
 	
+	
+	
+
 	
 	
 	// Getters/Setters
@@ -79,4 +134,12 @@ public class Game {
 	public ArrayList<Point> getWaypoints() {
 		return waypoints;
 	}
+	public Terrain[][] getTerrain() {
+		return grid;
+	}
+	public void setTerrain(int first, int second, Terrain terrain) {
+		this.grid[first][second] = terrain;
+	}
+	
+	
 }

@@ -2,6 +2,7 @@ package edu.ycp.cs320.magicprogram.shared;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Queue;
 import java.util.Stack;
 
 public class Creep {
@@ -20,15 +21,34 @@ public class Creep {
 		
 		this.position = position;
 		
-		size = 50;
+		size = 10;
 		
 		path = new Stack<Point>();
 		
 		for (int i = waypoints.size() - 1; i >= 0; i--) {
 			System.out.println("Added waypoint");
+
 			path.push(waypoints.get(i));
 		
+
+			this.path.push(waypoints.get(i));
+
 		}
+
+		
+//		if(waypoints.isEmpty()) {
+//			System.out.println("no waypoints to add");
+//		}
+//		
+//		for (int i = 0; i < waypoints.size(); i++) {
+//			System.out.println("Added waypoint");
+////			this.path.push(waypoints.get(i));
+//			this.path.add(waypoints.get(i));
+//		}
+		
+
+
+
 	}
 	
 	// Getters/Setters
@@ -47,9 +67,20 @@ public class Creep {
 	public Point getPos() {
 		return position;
 	}
+	public void setPos(Point position){
+		this.position = position;
+		
+	}
 	
 	public int getSize() {
+
 		return size;
+
+		//return this.size;
+	}
+	public double getSpeed() {
+		return this.speed;
+
 	}
 
 	public void setSize(int size) {
@@ -90,10 +121,14 @@ public class Creep {
 			}
 		}
 		else {
+
 			System.out.println("Path is empty");
 			position.addY(speed);
 			
 			
+
+//			System.out.println("Path is empty");	
+
 		}
 	}
 	
