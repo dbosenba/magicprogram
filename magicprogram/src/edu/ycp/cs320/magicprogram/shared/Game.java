@@ -82,6 +82,14 @@ public class Game {
 			for (Creep creep : creeps){
 				System.out.println("moving creep");
 				creep.move();
+				
+				for(int j=0; j < 32; j++){
+					for(int i = 0; i < 32; i++) {
+						if(creep.getPos().distanceTo(towers[j][i].getBlock().topLeft) < towers[j][i].getRange()) {
+							creeps.remove(creep);
+						}
+					}
+				}
 
 				creep.setPos(new Point(creep.getPos().getX() + 1, creep.getPos().getY() + 1));
 				if(creep.getPos().getX() < goal.getCenter().getX()) {

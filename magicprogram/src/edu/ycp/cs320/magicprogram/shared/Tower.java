@@ -11,9 +11,13 @@ public class Tower {
 	//private Point position;
 	// 
 	private Rectangle towerBlock;
+	private double range;
 	
 	
-	
+	public Tower(Point inPoint, double inputRange){
+		this.towerBlock.topLeft = inPoint;
+		this.range = inputRange;
+	}
 	//Goal:
 	//Create a way of comparing tower locations in the array to creep points. 
 	//
@@ -26,6 +30,16 @@ public class Tower {
 		return this.towerBlock;
 	}
 	
+	public double getRange() {
+		return this.range;
+	}
+	
+
+	
+	
+		
+	
+
 	
 }
 

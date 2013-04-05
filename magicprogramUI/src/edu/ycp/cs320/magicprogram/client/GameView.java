@@ -54,7 +54,7 @@ public class GameView extends Composite{
 		canvas.addMouseDownHandler(new MouseDownHandler() {
 			@Override
 			public void onMouseDown(MouseDownEvent event) {
-				model.getTowers()[selectionY / unitY][selectionX / unitX] = new Tower();
+				model.getTowers()[selectionY / unitY][selectionX / unitX] = new Tower(new Point(selectionY / unitY, selectionX / unitX), 15.0);
 				model.setTerrain((selectionY / unitY), (selectionX / unitX), Terrain.tower);
 				//Add location of tower to an arraylist of points to compare against creep points
 				//model.setTowpoint((selectionY/unitY), (selectionX / unitX));
