@@ -29,7 +29,7 @@ public class TestCreep {
 		//a = new Creep(testRect, range, 1, center);
 		//b = new Creep(fixRect, newRange, 1, fixpoint);
 	}
-	
+	/*
 	@Test
 	public void testGetBody() {
 //		Rectangle ta = new Rectangle(new Point(), 1);
@@ -40,7 +40,7 @@ public class TestCreep {
 	public void testSetBody() {
 		//a.setBody(setRect);
 		assertEquals(setRect, a.getBody());
-	}
+	}*/
 	
 	@Test
 	public void testgetRange() {
@@ -52,11 +52,11 @@ public class TestCreep {
 		a.setRange(newRange);
 		assertEquals(newRange, a.getRange());
 	}
-	
+	/*
 	@Test
 	public void testgetLocation() {
 		assertEquals(center, a.getCenter());
-	}
+	}*/
 
 
 	@Test
