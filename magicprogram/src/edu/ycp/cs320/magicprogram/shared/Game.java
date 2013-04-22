@@ -16,6 +16,7 @@ public class Game {
 	private Terrain[][] map = new Terrain[ROW][COL];
 	private ArrayList<Point> waypoints;
 	private int gridUnit = (int)(BOUNDS.x()/ROW);
+	private int counter=0;
 	
 	public Game() {
 		// WAYPOINTS
@@ -119,6 +120,7 @@ public class Game {
 						if (structure.getFocus().getHP() <= 0) {
 							creeps.remove(structure.getFocus());
 							structure.setFocus(null);
+							counter++; //counts creep dead
 						}
 					}
 					break;

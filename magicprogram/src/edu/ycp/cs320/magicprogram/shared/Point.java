@@ -88,6 +88,6 @@ public class Point {
 		return x;
 	}
 	public double y() {
-		return y;
+		return y;	//returns y
 	}
 }

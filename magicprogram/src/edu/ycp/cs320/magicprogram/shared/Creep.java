@@ -43,9 +43,9 @@ public class Creep {
 		return size;
 	}
 	public void setSize(int size) {
-		this.size = size;
+		this.size = size; 
 	}
-
+	//comment
 	//Methods
 	/**
 	 * Move towards the next waypoint
