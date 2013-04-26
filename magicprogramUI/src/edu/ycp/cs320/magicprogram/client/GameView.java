@@ -139,6 +139,11 @@ public class GameView extends Composite{
 					break;
 			}
 			context.fillRect(structure.tl().x(), structure.tl().y(), pieceWidth, pieceHeight);
+			context.setFillStyle("black");
+			context.fillText("Kills:" , 40, 20);
+			context.fillText(Integer.toString(model.getKillCount()), 75,20);
+			context.fillText("Money:", 40, 30);
+			context.fillText(Integer.toString(model.getMoney()), 75,30);
 			if (structure.getFocus() != null) {
 				drawLine(context, structure.getCenter(), structure.getFocus().getCenter());
 			}
