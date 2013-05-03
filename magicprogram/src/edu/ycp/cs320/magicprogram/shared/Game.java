@@ -66,7 +66,7 @@ public class Game {
 		}
 		for (Structure spawner : spawners) {
 			if (spawner.tick() == 0) {
-				creeps.add(new Creep(spawner.getCenter()));
+				creeps.add(new Creep(spawner.getCenter(), level.getWaypoints()));
 			}
 		}
 		for (Structure tower : towers) {
