@@ -62,6 +62,7 @@ public class Game {
 			if (base.getCenter().distanceTo(creeps.get(i).getCenter()) <= (base.getSize() / 2)) {
 				creeps.remove(i);
 				i--;
+				life--;
 			}
 		}
 		for (Structure spawner : spawners) {
