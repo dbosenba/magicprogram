@@ -15,6 +15,16 @@
     <servlet-name>greetServlet</servlet-name>
     <url-pattern>/magicprogramui/greet</url-pattern>
   </servlet-mapping>
+
+ <servlet>
+ 	<servlet-name>UserServiceImpl</servlet-name>
+ 	<servlet-class>edu.ycp.cs320.magicprogram.server.UserServiceImpl</servlet-class>
+ </servlet>
+<servlet-mapping>
+	<servlet-name>UserServiceImpl</servlet-name>
+	<url-pattern>/magicprogramui/user</url-pattern>
+</servlet-mapping>
+
   
   <!-- Default page to serve -->
   <welcome-file-list>
